@@ -2,7 +2,7 @@
 1. putty download 받는다
 2. AWS Console 에서 EC2 -> 네트워크 및 보안 -> 키 페어 -> 키 페어 생성 -> .ppk 로 다운로드 
 3. 2번의 키 페어를 활용해서 putty 로 접속하면 됩니다.  
-
+"8월2일 test"  
 # mac os 접속하기
 
 $ sudo chmod 400 njkwon-fc-seoul.pem 
