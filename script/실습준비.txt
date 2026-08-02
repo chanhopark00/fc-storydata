@@ -1,6 +1,7 @@
 # windows 에서 접속하기 
 putty 를 이용해서 접속한다. 
 
+# Putty 대신에  MobaXterm 으로 접속하기
 
 # mac os 접속하기
 # 1. AWS Console 에서 EC2 Instance medium type 을 생성한다. 
@@ -11,9 +12,12 @@ $ sudo chmod 400 njkwon-fc-seoul.pem 
 $ ssh -i "njkwon-fc-seoul.pem" ec2-user@**********.ap-northeast-1.compute.amazonaws.com
 
 #git 설치 
+
+# **"관리자 권한으로 질문 과정 없이 git 프로그램을 바로 설치하라"**는 명령어입니다.
 $ sudo yum install git -y 
 
 #source 다운로드 받기 
+# **"해당 GitHub 저장소에서 다른 브랜치는 제외하고, main 브랜치의 최신 소스코드만 빠르게 다운로드하라"**는 의미입니다.
 $ git clone -b main --single-branch https://github.com/njkwon/fc-storydata/ 
 $ cd fc-storydata 
 
