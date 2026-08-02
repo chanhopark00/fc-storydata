@@ -18,7 +18,7 @@ $ sudo yum install git -y
 
 #source 다운로드 받기 
 # **"해당 GitHub 저장소에서 다른 브랜치는 제외하고, main 브랜치의 최신 소스코드만 빠르게 다운로드하라"**는 의미입니다.
-$ git clone -b main --single-branch https://github.com/njkwon/fc-storydata/ 
+$ git clone -b main --single-branch https://github.com/chanhopark00/fc-storydata/ 
 $ cd fc-storydata 
 
 #s3 버킷 만들기 : 버킷은 중복생성이 안되기때문에 본인 개인에 맞는 버킷을 생성한다.
