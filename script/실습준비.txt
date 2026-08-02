@@ -17,12 +17,20 @@ $ ssh -i "njkwon-fc-seoul.pem" ec2-user@**********.ap-northeast-1.compute.amazon
 $ sudo yum install git -y 
 
 #source 다운로드 받기 
-# **"해당 GitHub 저장소에서 다른 브랜치는 제외하고, main 브랜치의 최신 소스코드만 빠르게 다운로드하라"**는 의미입니다.
+# "해당 GitHub 저장소에서 다른 브랜치는 제외하고, main 브랜치의 최신 소스코드만 빠르게 다운로드하라" 는 의미입니다.
 # download 받은 후에는 S3 에 저장할 예정임.
 $ git clone -b main --single-branch https://github.com/chanhopark00/fc-storydata/ 
 $ cd fc-storydata 
+[ec2-user@ip-172-31-34-33 fc-storydata]$ ls
+[ec2-user@ip-172-31-34-33 fc-storydata]$ ls -al
 
-#s3 버킷 만들기 : 버킷은 중복생성이 안되기때문에 본인 개인에 맞는 버킷을 생성한다.
-$ export bucketname=fc-storydata
+## s3 버킷 만들기 : 버킷은 중복생성이 안되기때문에 본인 개인에 맞는 버킷을 생성한다.
+# 환경 변수로 bucketname의 값을 7project-aws-datapipeline으로 설정하는 명령어
+$ export bucketname=7project-aws-datapipeline
+
+# "AWS CLI를 사용하여 지정한 AWS 리전에 새로운 S3 버킷(Bucket)을 생성하라"
 $ aws s3 mb s3://$bucketname --region ap-norteast-2
+
+# "현재 디렉터리의 파일들을 S3 버킷으로 업로드(동기화)하되, Git 관련 관리 파일(.git/ 폴더)만 제외하고 업로드하라"
+# "fatal error: Unable to locate credentials" 발생시에는 '$ aws configrue' 실행, Access key, Secret key 입력
 $ aws s3 sync . s3://$bucketname --exclude '.git/*'
